@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>flipkart</title>
+        <link 
+                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+                    rel="stylesheet"
+                    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+                    crossorigin="anonymous"
+                />
+                           <script
+                    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+                    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+                    crossorigin="anonymous"
+                ></script>
+        
+                <script
+                    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+                    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+                    crossorigin="anonymous"
+                    ></script>
+    <script>
+        var product={ 
+            "name":"Apple iPhone 15 (Green, 256 GB)",
+            "ratings":{"star":4.2,
+                        "ratin":15754,
+                        "reviews":694},
+            "price":170999,
+            "offers":["Bank OfferGet ₹25* instant discount for the 1st Flipkart Order using Flipkart UPIT&C",
+                    "Bank Offer₹1000 off on UPI TransactionsT&C",
+                    "Bank Offer5% Cashback on Flipkart Axis Bank CardT&C",
+                    "Special PriceGet extra ₹6901 off (price inclusive of cashback/coupon)T&C"],
+            "image":""
+        }
+        function bodyload(){
+           document.getElementById("proimage").src="iphone.png"
+           document.getElementById("proname").innerHTML=product.name
+           document.getElementById("ratings").innerHTML=product.ratings.star
+           document.getElementById("reviews").innerHTML=`${product.ratings.ratin.toLocaleString()} ratings & ${ product.ratings.reviews.toLocaleString()} reviews`
+           document.getElementById("proprice").innerHTML = product.price.toLocaleString('en-in', {style:'currency', currency:'INR'});
+           offers=product.offers
+           offers.map(function(offer){
+            var li=document.createElement('li')
+            li.innerText=offer
+            document.getElementById('prooffers').appendChild(li)
+           })
+           
+
+
+
+        }
+
+    </script>
+          <style>
+            ul{
+                list-style: none;
+
+            }
+          </style>  
+    </head>
+    <body onload="bodyload()" style="background-color: rgba(7, 3, 3, 0.937);color: #ffffff;" >
+        <div class="row">
+            <div class="col-3 px-20 my-3" >
+                <img id="proimage" width="100%">
+            </div>
+            <div class="col-9 px-20 my-3">
+                <div class="h4" id="proname">
+
+                </div>
+                <div >
+                    <span
+                        class="badge rounded-pill text-bg-primary" id="ratings"
+                        ></span>
+                    <span id="reviews">
+
+                    </span>
+                    
+                    <!-- <span id="reviews"></span> -->
+
+                </div>
+                <div id="proprice"  class="h1">
+
+                </div>
+                <ul id ="prooffers" style="color: rgb(69, 168, 234);">
+
+                </ul>
+            </div>
+        </div>
+
+    </body>
+</html>
